@@ -2,7 +2,48 @@ import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Grid, IconButton, Typography, useTheme } from '@mui/material';
 import '../../styles/header.css';
-import { DarkMode } from '@mui/icons-material';
+import { DarkMode, LightMode } from '@mui/icons-material';
+
+interface ILink {
+  name: string;
+  to: string;
+  url?: string;
+}
+
+const links: ILink[] = [
+  {
+    name: 'Home',
+    to: '/'
+  },
+  {
+    name: 'About me',
+    to: '/about'
+  },
+  {
+    name: 'Main',
+    to: '/',
+    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png',
+  },
+  {
+    name: 'Portfolio',
+    to: '/projects'
+  },
+];
+
+const classes = {
+  headerItem: {
+    textDecoration: 'none',
+    transition: 'all 250ms ease',
+    "&:hover": {
+      transition: 'all 250ms ease',
+      transform: 'translateY(-3px)',
+      color: 'rgb(154, 101, 250)',
+    }
+  },
+  headerLi: {
+    listStyleType: 'none',
+  }
+};
 
 const Header = ({ toggleTheme }: any): JSX.Element => {
 
@@ -15,51 +56,53 @@ const Header = ({ toggleTheme }: any): JSX.Element => {
 
   return (
     <>
-      <Grid
-        container
-        spacing={0}
-        justifyContent="space-evenly"
-      >
+      <Grid container component={'nav'}>
         <Grid
           item
-          xs={0}
-          className={ selectedPath('/')}
+          component="ul"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          gap={{xs: '2rem', md: '8rem'}}
+          marginTop={2}
+          width="100%"
         >
-          <Typography>
-            <Link to="/" style={{ textDecoration: 'none', color: palette.text.primary }}>
-                Home
-            </Link>
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={0}
-          className={ selectedPath('/about')}
-        >
-          <Typography>
-            <Link to="/about" style={{ textDecoration: 'none', color: palette.text.primary }}>
-                About me
-            </Link>
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={0}
-          className={ selectedPath('/projects')}
-        >
-          <Typography>
-            <Link to="/projects" style={{ textDecoration: 'none', color: palette.text.primary }}>
-                Portfolio
-            </Link>
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={0}
-        >
-          <IconButton onClick={toggleTheme}>
-            <DarkMode style={{color: palette.text.primary}} />
-          </IconButton>
+          {
+            links.map((item) => (
+              <Grid
+                item
+                component="li"
+                style={classes.headerLi}
+                key={ item.name }
+              >
+                <Link to={ item.to } style={{ textDecoration: 'none' }}>
+                  <Typography
+                    sx={[classes.headerItem, {color: palette.text.primary}]}
+                    className={ item.name !== 'Main' ? selectedPath(item.to) : '' }
+                  >
+                    {
+                      !item.url 
+                      ? item.name 
+                      : <img src={item.url} alt="img?" height={50} width={60} />
+                    }
+                  </Typography>
+                </Link>
+              </Grid>
+            ))
+          }
+          <Grid
+            item
+            component="li"
+            style={classes.headerLi}
+          >
+            <IconButton onClick={toggleTheme} sx={classes.headerItem}>
+              {
+                palette.mode === 'light'
+                ? (<DarkMode  style={{color: palette.text.primary}} />)
+                : (<LightMode style={{color: palette.text.primary}} />)
+              }    
+            </IconButton>
+          </Grid>
         </Grid>
       </Grid>
     </>

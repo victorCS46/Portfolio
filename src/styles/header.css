@@ -1,4 +1,4 @@
 .vcs-header-selected {
   border-bottom: 4px solid;
-  border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+  border-image: linear-gradient(to right, rgb(33, 88, 165), rgb(154, 101, 250))1;
 }
