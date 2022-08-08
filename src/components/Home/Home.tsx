@@ -1,25 +1,54 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Link, Tooltip, useTheme } from '@mui/material';
+import { GitHub, LinkedIn } from '@mui/icons-material';
+import './home.css';
 
-const homeInfo = [
+interface IHomeInfo {
+  text: string;
+}
+
+interface ISocialMedia {
+  mediaName: string;
+  iconComponent: JSX.Element;
+  url: string;
+}
+
+const homeInfo: IHomeInfo[] = [
   {
-    text: '🇩🇴 De Republica Dominicana, Santo Domingo.',
+    text: '🇩🇴 From Dominican Republic, Santo Domingo.',
   },
   {
-    text: '💻 Software Developer en Viva Dominicana.',
+    text: '💻 Software Developer at Viva Dominicana.',
   },
   {
-    text: '⚾ Amor por el baseball.',
+    text: '⚾ Love for baseball.',
   },
   {
-    text: '✉️ Contactame.',
+    text: '✉️ Contact me.',
+  },
+];
+
+const socialMedia: ISocialMedia[] = [
+  {
+    mediaName: 'github',
+    iconComponent: (<GitHub fontSize="large" />),
+    url: 'https://github.com/victorCS46',
+  },
+  {
+    mediaName: 'linkedin',
+    iconComponent: (<LinkedIn fontSize="large" />),
+    url: 'https://www.linkedin.com/in/victor-cruz-b245b5213/',
   },
 ];
 
 const Home = (): JSX.Element => {
+
+  const { palette } = useTheme();
+
   return (
     <React.Fragment>
-      <Box width="100%"
+      <Box
+        width="100%"
         display="flex"
         flexDirection={{xs: 'column', md: 'row'}}
         justifyContent="center"
@@ -41,10 +70,10 @@ const Home = (): JSX.Element => {
         />
         <Box
           display="flex"
-          flexDirection="column"  
+          flexDirection="column"
         >
           <h1>
-            Hi, I'm <span style={{background: 'cyan', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Victor</span><span>🤚</span>
+            Hi, I'm <span style={{color: 'cyan'}}>Victor</span><span>🤚</span>
           </h1>
           <h2>I'm a front-end Developer</h2>
           <Box
@@ -56,14 +85,33 @@ const Home = (): JSX.Element => {
                 <Box
                   key={index}
                   component="li"
+                  mb={1}
                 >
                   {item.text}
                 </Box>
               ))
             }
           </Box>
-          <Box>
-            
+          <Box
+            display="flex"
+            flexDirection="row"
+          >
+            {
+              socialMedia.map((item, index) => (
+                <Box key={index} mr={2}>
+                  <Tooltip title={item.mediaName} arrow>
+                    <Link
+                      href={item.url}
+                      color={palette.text.primary}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      {item.iconComponent}
+                    </Link>
+                  </Tooltip>
+                </Box>
+              ))
+            }
           </Box>
         </Box>
       </Box>

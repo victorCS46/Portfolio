@@ -13,7 +13,7 @@ const Footer = (): JSX.Element => (
     sx={{opacity: 0.7}}
     width="100%"
   >
-    <span>Creado por <a href="https://github.com/victorCS46">Victor Cruz</a></span>
+    <span>Made by <a href="https://github.com/victorCS46">VictorCS46</a></span>
     <span>&copy; {date.getFullYear()}</span>
   </Box>
 )
