@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { Grid, IconButton, Typography, useTheme } from '@mui/material';
-import '../../styles/header.css';
-import { DarkMode, LightMode } from '@mui/icons-material';
+import { Box, Typography, useTheme } from '@mui/material';
+import './header.css';
+import Toggle from './Toggle';
 
 interface ILink {
   name: string;
@@ -16,7 +16,7 @@ const links: ILink[] = [
     to: '/'
   },
   {
-    name: 'About me',
+    name: 'About',
     to: '/about'
   },
   {
@@ -56,9 +56,8 @@ const Header = ({ toggleTheme }: any): JSX.Element => {
 
   return (
     <>
-      <Grid container component={'nav'}>
-        <Grid
-          item
+      <Box component={'nav'}>
+        <Box
           component="ul"
           display="flex"
           justifyContent="center"
@@ -69,8 +68,7 @@ const Header = ({ toggleTheme }: any): JSX.Element => {
         >
           {
             links.map((item) => (
-              <Grid
-                item
+              <Box
                 component="li"
                 style={classes.headerLi}
                 key={ item.name }
@@ -87,24 +85,17 @@ const Header = ({ toggleTheme }: any): JSX.Element => {
                     }
                   </Typography>
                 </Link>
-              </Grid>
+              </Box>
             ))
           }
-          <Grid
-            item
+          <Box
             component="li"
             style={classes.headerLi}
           >
-            <IconButton onClick={toggleTheme} sx={classes.headerItem}>
-              {
-                palette.mode === 'light'
-                ? (<DarkMode  style={{color: palette.text.primary}} />)
-                : (<LightMode style={{color: palette.text.primary}} />)
-              }    
-            </IconButton>
-          </Grid>
-        </Grid>
-      </Grid>
+            <Toggle toggleTheme={toggleTheme} />
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 }

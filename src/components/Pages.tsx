@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
 import About from './About/About';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
@@ -18,13 +18,27 @@ const Pages = () => {
     <React.Fragment>
       <ThemeProvider theme={!isDark ? lightTheme : darkTheme}>
         <CssBaseline />
-        <Header toggleTheme={toggleTheme} />
-        <Routes>
-          <Route path="/" element={ <Home /> } />
-          <Route path="about" element={ <About /> } />
-          <Route path="projects" element={ <Projects /> } />
-        </Routes>
-        <Footer />
+        <Grid
+          container
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          minHeight="100vh"
+        >
+          <Grid item>
+            <Header toggleTheme={toggleTheme} />
+          </Grid>
+          <Grid item flexGrow={1}>
+            <Routes>
+              <Route path="/" element={ <Home /> } />
+              <Route path="about" element={ <About /> } />
+              <Route path="projects" element={ <Projects /> } />
+            </Routes>
+          </Grid>
+          <Grid item>
+            <Footer />
+          </Grid>
+        </Grid>
       </ThemeProvider>
     </React.Fragment>
   )
