@@ -31,15 +31,40 @@ const homeInfo: IHomeInfo[] = [
 const socialMedia: ISocialMedia[] = [
   {
     mediaName: 'github',
-    iconComponent: (<GitHub fontSize="large" />),
+    iconComponent: <GitHub sx={{fontSize: 46,}} />,
     url: 'https://github.com/victorCS46',
   },
   {
     mediaName: 'linkedin',
-    iconComponent: (<LinkedIn fontSize="large" />),
+    iconComponent: <LinkedIn sx={{fontSize: 46,}} />,
     url: 'https://www.linkedin.com/in/victor-cruz-b245b5213/',
   },
 ];
+
+const classes = {
+  infoTextContainer: {
+    transition: 'all 250ms ease',
+    "&:hover": {
+      transition: 'all 250ms ease',
+      transform: 'translateY(-3px)',
+    }
+  },
+  infoText: {
+    textDecoration: 'none',
+    transition: 'all 250ms ease',
+    "&:hover": {
+      transition: 'all 250ms ease',
+      color: 'rgb(154, 101, 250)',
+    }
+  },
+  mediaIcon: {
+    transition: 'all 250ms ease',
+    '&:hover': {
+      color: 'rgb(154, 101, 250)',
+      transition: 'all 250ms ease',
+    },
+  },
+};
 
 const Home = (): JSX.Element => {
 
@@ -86,8 +111,16 @@ const Home = (): JSX.Element => {
                   key={index}
                   component="li"
                   mb={1}
+                  sx={classes.infoTextContainer}
                 >
-                  {item.text}
+                  <Link
+                    href="#"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    sx={[classes.infoText, {color: palette.text.primary}]}
+                  >
+                    {item.text}
+                  </Link>
                 </Box>
               ))
             }
@@ -103,6 +136,7 @@ const Home = (): JSX.Element => {
                     <Link
                       href={item.url}
                       color={palette.text.primary}
+                      sx={classes.mediaIcon}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
