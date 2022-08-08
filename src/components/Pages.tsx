@@ -8,7 +8,7 @@ import Home from './Home/Home';
 import Projects from './Projects/Projects';
 import { lightTheme, darkTheme } from '../theme/theme';
 
-const Pages = () => {
+const Pages = (): JSX.Element => {
 
   const [isDark, setIsDark] = React.useState<boolean>(false);
 
@@ -41,7 +41,7 @@ const Pages = () => {
         </Grid>
       </ThemeProvider>
     </React.Fragment>
-  )
+  );
 }
 
 export default Pages;
