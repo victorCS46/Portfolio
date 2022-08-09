@@ -4,6 +4,9 @@ import { Theme } from "@mui/system";
 export const lightTheme: Theme = createTheme({
   palette: {
     mode: 'light',
+    background: {
+      default: '#f8f8f8',
+    },
   },
 });
 

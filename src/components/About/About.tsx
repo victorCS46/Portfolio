@@ -1,5 +1,6 @@
-import { Box } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/material';
+import { FiberManualRecord } from '@mui/icons-material';
 
 const About = (): JSX.Element => {
 
@@ -9,17 +10,29 @@ const About = (): JSX.Element => {
       flexDirection="column"
       alignItems="center"
       borderRadius="1rem"
-      border={'1px solid black'}
     >
-      <Box
-        width={{ xs: '80%', md: '50%' }}
-        borderRadius="1rem 1rem 0 0"
-        border={'1px solid black'}
-      >
-        header
-      </Box>
-      <Box>
-        body
+      <Box width={{ xs: '80%', md: '50%' }}>
+        <Box
+          borderRadius="0.5rem 0.5rem 0 0"
+          display="flex"
+          alignItems="center"
+          p="0.5rem"
+          sx={{background: '#8c8c8c'}}
+        >
+          <FiberManualRecord sx={{color: '#ff6057'}} fontSize="small" />
+          <FiberManualRecord sx={{color: '#ffbd2e'}} fontSize="small" />
+          <FiberManualRecord sx={{color: '#27c93f'}} fontSize="small" />
+        </Box>
+        <Box
+          borderRadius="0 0 0.5rem 0.5rem"
+          p="1rem"
+          fontFamily="Courier New, Courier, monospace"
+          fontSize="1.5rem"
+          color="#fff"
+          sx={{background: '#27242f'}}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra nulla eget suscipit suscipit. Ut eu mi vel urna condimentum euismod a ut nisl. Praesent sagittis id leo sed tincidunt. Sed egestas augue eget dignissim tempor. Donec bibendum ornare ligula ut mattis. 
+        </Box>
       </Box>
     </Box>
   );
