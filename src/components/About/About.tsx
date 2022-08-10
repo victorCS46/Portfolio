@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, Grid, Typography, useTheme } from '@mui/material';
 import Terminal from './Terminal';
 import { GitHub } from '@mui/icons-material';
 
@@ -107,42 +107,29 @@ const About = (): JSX.Element => {
           $ cd skills/ && ls
         </p>
         {/* body */}
-        <Box
-          display="flex"
-          flexDirection="row"
-          justifyContent="space-evenly"
-          
+        <Grid
+          container
+          component="ul"
         >
-          <Box
-           display="flex"
-           flexDirection="column"
-          >   
-            <span>JavaScript</span>
-            <span>TypeScript</span>
-            <span>PHP</span>
-            <span>Laravel</span>
-            <span>React</span>
-            <span>React Native</span>
-          </Box>
-          <Box
-            display="flex"
-            flexDirection="column"
-          >
-            <span>Node</span>
-            <span>Git</span>
-            <span>Github</span>
-            <span>Gitlab</span>
-            <span>PostgreSQL</span>
-            <span>MySQL</span>
-          </Box>
-          <Box
-            display="flex"
-            flexDirection="column"
-          >
-            <span>OracleDB (PL/SQL)</span>   
-            <span>AWS Lambda</span>
-          </Box>
-        </Box>
+          <Grid item xs={6}>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>PHP</li>
+            <li>Laravel</li>
+            <li>React</li>
+            <li>React Native</li>
+            <li>AWS Lambda</li>
+          </Grid>
+          <Grid item xs={6}>
+            <li>Node</li>
+            <li>Git</li>
+            <li>Github</li>
+            <li>Gitlab</li>
+            <li>PostgreSQL</li>
+            <li>MySQL</li>
+            <li>OracleDB</li>
+          </Grid>
+        </Grid>
         <br/>
       </Terminal>
     </Box>
