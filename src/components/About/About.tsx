@@ -1,6 +1,70 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import Terminal from './Terminal';
+import { GitHub } from '@mui/icons-material';
+
+interface ISkills {
+  skill: string;
+  url?: string;
+};
+
+const skills: ISkills[] = [
+  {
+    skill: 'JavaScript',
+    url: '../../assets/icons/javascript.png',
+  },
+  {
+    skill: 'TypeScript',
+    url: '../../assets/icons/typescript.png',
+  },
+  {
+    skill: 'PHP',
+    url: '../../assets/icons/php.png',
+  },
+  {
+    skill: 'Laravel',
+    url: '../../assets/icons/laravel.png',
+  },
+  {
+    skill: 'React',
+    url: '../../assets/icons/react.png',
+  },
+  {
+    skill: 'React Native',
+    url: '../../assets/icons/react.png',
+  },
+  {
+    skill: 'Node',
+    url: '../../assets/icons/node.png',
+  },
+  {
+    skill: 'Git',
+    url: '../../assets/icons/git.png',
+  },
+  {
+    skill: 'Github',
+  },
+  {
+    skill: 'Gitlab',
+    url: '../../assets/icons/gitlab.png',
+  },
+  {
+    skill: 'PostgreSQL',
+    url: '../../assets/icons/postgre.png',
+  },
+  {
+    skill: 'MySQL',
+    url: '../../assets/icons/mysql.png',
+  },
+  {
+    skill: 'OracleDB',
+    url: '../../assets/icons/oracle.png',
+  },
+  {
+    skill: 'AWS Lambda',
+    url: '../../assets/icons/aws.png',
+  },
+];
 
 const About = (): JSX.Element => {
 
@@ -43,129 +107,40 @@ const About = (): JSX.Element => {
           $ cd skills/ && ls
         </p>
         {/* body */}
-        {/* WIP */}
         <Box
           display="flex"
           flexDirection="row"
           justifyContent="space-evenly"
+          
         >
-          <Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/javascript.png')} />
-              <span>JavaScript</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/typescript.png')}/>
-              <span>TypeScript</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/php.png')}/>
-              <span>PHP</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/laravel.png')} width={48} height={40}/>
-              <span>Laravel</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/react.png')}/>
-              <span>React</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/react.png')}/>
-              <span>React Native</span>
-            </Box>
-          </Box>
-          <Box>
           <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/node.png')} />
-              <span>Node</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/git.png')}/>
-              <span>Git</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/git.png')}/>
-              <span>Github</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/gitlab.png')} />
-              <span>Gitlab</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/postgre.png')}/>
-              <span>PostgreSQL</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/mysql.png')}/>
-              <span>MySQL</span>
-            </Box>
+           display="flex"
+           flexDirection="column"
+          >   
+            <span>JavaScript</span>
+            <span>TypeScript</span>
+            <span>PHP</span>
+            <span>Laravel</span>
+            <span>React</span>
+            <span>React Native</span>
           </Box>
-          <Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/oracle.png')}/>
-              <span>OracleDB (PL/SQL)</span>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <img src={require('../../assets/icons/aws.png')}/>
-              <span>AWS Lambda</span>
-            </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+          >
+            <span>Node</span>
+            <span>Git</span>
+            <span>Github</span>
+            <span>Gitlab</span>
+            <span>PostgreSQL</span>
+            <span>MySQL</span>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+          >
+            <span>OracleDB (PL/SQL)</span>   
+            <span>AWS Lambda</span>
           </Box>
         </Box>
         <br/>
