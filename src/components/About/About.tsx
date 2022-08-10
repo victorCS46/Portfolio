@@ -1,75 +1,8 @@
 import React from 'react';
-import { Box, Grid, Typography, useTheme } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Terminal from './Terminal';
-import { GitHub } from '@mui/icons-material';
-
-interface ISkills {
-  skill: string;
-  url?: string;
-};
-
-const skills: ISkills[] = [
-  {
-    skill: 'JavaScript',
-    url: '../../assets/icons/javascript.png',
-  },
-  {
-    skill: 'TypeScript',
-    url: '../../assets/icons/typescript.png',
-  },
-  {
-    skill: 'PHP',
-    url: '../../assets/icons/php.png',
-  },
-  {
-    skill: 'Laravel',
-    url: '../../assets/icons/laravel.png',
-  },
-  {
-    skill: 'React',
-    url: '../../assets/icons/react.png',
-  },
-  {
-    skill: 'React Native',
-    url: '../../assets/icons/react.png',
-  },
-  {
-    skill: 'Node',
-    url: '../../assets/icons/node.png',
-  },
-  {
-    skill: 'Git',
-    url: '../../assets/icons/git.png',
-  },
-  {
-    skill: 'Github',
-  },
-  {
-    skill: 'Gitlab',
-    url: '../../assets/icons/gitlab.png',
-  },
-  {
-    skill: 'PostgreSQL',
-    url: '../../assets/icons/postgre.png',
-  },
-  {
-    skill: 'MySQL',
-    url: '../../assets/icons/mysql.png',
-  },
-  {
-    skill: 'OracleDB',
-    url: '../../assets/icons/oracle.png',
-  },
-  {
-    skill: 'AWS Lambda',
-    url: '../../assets/icons/aws.png',
-  },
-];
 
 const About = (): JSX.Element => {
-
-  const { palette } = useTheme();
-
   return (
     <Box
       display="flex"
@@ -110,6 +43,9 @@ const About = (): JSX.Element => {
         <Grid
           container
           component="ul"
+          sx={{listStyleType: 'none'}}
+          display="flex"
+          // justifyContent="space-between"
         >
           <Grid item xs={6}>
             <li>JavaScript</li>
@@ -131,6 +67,22 @@ const About = (): JSX.Element => {
           </Grid>
         </Grid>
         <br/>
+      </Terminal>
+
+      <Terminal>
+        {/* header */}
+        <p>
+          <span style={{color: '#af5fff'}}>victorcruz</span> at 
+          <span style={{color: '#d75f00'}}> about</span> in 
+          <span style={{color: '#87fd03'}}> ~/portfolio</span> 
+          <span style={{color: '#56c2e6'}}> (main)</span><br/>
+          $ cd hobbies/ && ls
+        </p>
+        {/* body */}
+        <Box component="ul">
+          <li>🎮 Gaming</li>
+          <li>⚾ Baseball</li>
+        </Box>
       </Terminal>
     </Box>
   );
