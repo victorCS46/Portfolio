@@ -5,3 +5,11 @@ h1, h2 {
 li {
   list-style-type: none;
 }
+
+.name {
+  background-image: linear-gradient(45deg,rgb(33, 88, 165), rgb(154, 101, 250));  
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}

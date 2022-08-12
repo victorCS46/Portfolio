@@ -5,6 +5,7 @@ import './home.css';
 
 interface IHomeInfo {
   text: string;
+  url?: string;
 }
 
 interface ISocialMedia {
@@ -16,15 +17,19 @@ interface ISocialMedia {
 const homeInfo: IHomeInfo[] = [
   {
     text: '🇩🇴 From Dominican Republic, Santo Domingo.',
+    url: 'https://www.godominicanrepublic.com/es/',
   },
   {
     text: '💻 Software Developer at Viva Dominicana.',
+    url: 'https://viva.com.do/',
   },
   {
     text: '⚾ Love for baseball.',
+    url: '#'
   },
   {
     text: '✉️ Contact me.',
+    url: 'mailto:victorcruzsuero@gmail.com?subject=Contact%20Me',
   },
 ];
 
@@ -98,7 +103,7 @@ const Home = (): JSX.Element => {
           flexDirection="column"
         >
           <h1>
-            Hi, I'm <span style={{color: 'cyan'}}>Victor</span><span>🤚</span>
+            Hi, I'm <span className="name">Victor</span><span>🤚</span>
           </h1>
           <h2>I'm a front-end Developer</h2>
           <Box
@@ -114,7 +119,7 @@ const Home = (): JSX.Element => {
                   sx={classes.infoTextContainer}
                 >
                   <Link
-                    href="#"
+                    href={item.url}
                     rel="noopener noreferrer"
                     target="_blank"
                     sx={[classes.infoText, {color: palette.text.primary}]}
