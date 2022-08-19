@@ -1,16 +1,14 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
-const github = axios.create({
+const github: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com/',
+  headers: {
+    accept: 'application/vnd.github+json',
+  },
 });
 
 export const getUserRepos = async (username: string) => {
-  const response = await github.get(`users/${ username }/repos`, {
-    headers: {
-      accept: 'application/vnd.github+json',
-    },
-  });
-
+  const response = await github.get(`users/${ username }/repos`);
   return response;
 };
 
