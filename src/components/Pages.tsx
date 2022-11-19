@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { CssBaseline, Grid, ThemeProvider } from '@mui/material';
 import About from './About/About';
@@ -7,12 +7,27 @@ import Header from './Header/Header';
 import Home from './Home/Home';
 import Projects from './Projects/Projects';
 import { lightTheme, darkTheme } from '../theme/theme';
+import { getUser } from '../api/githubApi';
 
 const Pages = (): JSX.Element => {
 
   const [isDark, setIsDark] = React.useState<boolean>(false);
+  const [avatar, setAvatar] = useState('');
 
   const toggleTheme = (): void => setIsDark(!isDark);
+
+  useEffect(() => {
+    const user = async () => {
+      try {
+        const response = await getUser('victorcs46');
+        const { data } = response;
+        setAvatar(data.avatar_url);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    user();
+  }, []);
 
   return (
     <React.Fragment>
@@ -26,7 +41,7 @@ const Pages = (): JSX.Element => {
           minHeight="100vh"
         >
           <Grid item>
-            <Header toggleTheme={toggleTheme} />
+            <Header toggleTheme={toggleTheme} avatar={avatar} />
           </Grid>
           <Grid item flexGrow={1}>
             <Routes>

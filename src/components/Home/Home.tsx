@@ -71,7 +71,7 @@ const classes = {
   },
 };
 
-const Home = (): JSX.Element => {
+const Home = ({ avatar }: any): JSX.Element => {
 
   const { palette } = useTheme();
 
@@ -87,7 +87,7 @@ const Home = (): JSX.Element => {
       >
         <Box
           component="img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+          src={avatar}
           width={{xs: '35vh', md: '40vh'}}
           height={{xs: '35vh', md: '40vh'}}
           p={'1rem'}
@@ -105,7 +105,7 @@ const Home = (): JSX.Element => {
           <h1>
             Hi, I'm <span className="name">Victor</span><span>🤚</span>
           </h1>
-          <h2>I'm a front-end Developer</h2>
+          <h2>I'm a Software Developer</h2>
           <Box
             component="ul"
             p="1rem"

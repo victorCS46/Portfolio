@@ -12,4 +12,9 @@ export const getUserRepos = async (username: string) => {
   return response;
 };
 
+export const getUser = async (username: string) => {
+  const response = await github.get(`users/${ username }`);
+  return response;
+};
+
 export default github;
