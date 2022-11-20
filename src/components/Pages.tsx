@@ -46,8 +46,8 @@ const Pages = (): JSX.Element => {
           <Grid item flexGrow={1}>
             <Routes>
               <Route path="/" element={ <Home avatar={avatar} /> } />
-              <Route path="about" element={ <About /> } />
-              <Route path="projects" element={ <Projects /> } />
+              <Route path="/about" element={ <About /> } />
+              <Route path="/projects" element={ <Projects /> } />
             </Routes>
           </Grid>
           <Grid item>
