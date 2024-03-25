@@ -1,14 +1,9 @@
-import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Box, Typography, useTheme } from '@mui/material';
-import './header.css';
-import Toggle from './Toggle';
 
-interface ILink {
-  name: string;
-  to: string;
-  url?: string;
-}
+import Toggle from './Toggle';
+import { ILink } from '../../types/header';
+import './header.css';
 
 const links: ILink[] = [
   {
@@ -50,9 +45,7 @@ const Header = ({ toggleTheme }: any): JSX.Element => {
   const { pathname } = useLocation();
   const { palette } = useTheme();
 
-  const selectedPath = (path: string): string|undefined => pathname === path 
-    ? 'vcs-header-selected' 
-    : undefined;
+  const selectedPath = (path: string): string => pathname === path ? 'vcs-header-selected' : '';
 
   return (
     <>

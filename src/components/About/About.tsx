@@ -1,5 +1,5 @@
-import React from 'react';
 import { Box, Grid } from '@mui/material';
+
 import Terminal from './Terminal';
 
 const About = (): JSX.Element => {

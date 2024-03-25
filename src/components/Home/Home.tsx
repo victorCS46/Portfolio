@@ -1,18 +1,9 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { Box, Link, Tooltip, useTheme } from '@mui/material';
 import { GitHub, LinkedIn } from '@mui/icons-material';
+
+import { IHomeInfo, ISocialMedia } from '../../types/home';
 import './home.css';
-
-interface IHomeInfo {
-  text: string;
-  url?: string;
-}
-
-interface ISocialMedia {
-  mediaName: string;
-  iconComponent: JSX.Element;
-  url: string;
-}
 
 const homeInfo: IHomeInfo[] = [
   {
@@ -20,8 +11,8 @@ const homeInfo: IHomeInfo[] = [
     url: 'https://www.godominicanrepublic.com/es/',
   },
   {
-    text: '💻 Software Developer at Viva Dominicana.',
-    url: 'https://viva.com.do/',
+    text: '💻 Software Developer at Banreservas.',
+    url: 'https://www.banreservas.com/',
   },
   {
     text: '⚾ Love for baseball.',
@@ -35,12 +26,12 @@ const homeInfo: IHomeInfo[] = [
 
 const socialMedia: ISocialMedia[] = [
   {
-    mediaName: 'github',
+    mediaName: 'GitHub',
     iconComponent: <GitHub sx={{fontSize: 46,}} />,
     url: 'https://github.com/victorCS46',
   },
   {
-    mediaName: 'linkedin',
+    mediaName: 'LinkedIn',
     iconComponent: <LinkedIn sx={{fontSize: 46,}} />,
     url: 'https://www.linkedin.com/in/victor-cruz-b245b5213/',
   },
@@ -76,7 +67,7 @@ const Home = ({ avatar }: any): JSX.Element => {
   const { palette } = useTheme();
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Box
         width="100%"
         display="flex"
@@ -103,7 +94,7 @@ const Home = ({ avatar }: any): JSX.Element => {
           flexDirection="column"
         >
           <h1>
-            Hi, I'm <span className="name">Victor</span><span>🤚</span>
+            Hi, I'm <span className="name">Victor</span> <span>🤚</span>
           </h1>
           <h2>I'm a Software Developer</h2>
           <Box
@@ -154,7 +145,7 @@ const Home = ({ avatar }: any): JSX.Element => {
           </Box>
         </Box>
       </Box>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

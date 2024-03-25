@@ -1,42 +1,36 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
 import { Box, Button, Card, CardActions, CardContent, CardMedia, CircularProgress, Typography, useTheme } from '@mui/material';
-import { getUserRepos } from '../../api/githubApi';
-import './projects.css';
 import { GitHub } from '@mui/icons-material';
 
-interface IRepo {
-  name: string;
-  description: string;
-  url: string;
-  language: string;
-  avatar: string;
-};
+import { getUserRepos } from '../../api/githubApi';
+import { IRepo } from '../../types/projects';
+import './projects.css';
 
 const username = 'victorCS46';
 
 const Projects = () => {
 
-  const [repos, setRepos] = React.useState<IRepo[]>([]);
+  const [repos, setRepos] = useState<IRepo[]>([]);
   const { palette } = useTheme();
 
-  React.useEffect(() => {
+  useEffect(() => {
     getUserRepos(username)
       .then(({ data }: AxiosResponse) => {
-        const repo: IRepo[] = data.map((item: any): IRepo => ({
+        const repoList: IRepo[] = data.map((item: any): IRepo => ({
           name: item.name,
           description: item.description,
           url: item.html_url,
           language: item.language,
           avatar: item.owner.avatar_url,
         }));
-        setRepos(repo);
+        setRepos(repoList);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Box
         width={{xs: '60%', md: '80%'}}
         margin="auto"
@@ -70,7 +64,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Repository
+                  Go to repo
                 </Button>
               </CardActions>
             </Card>
@@ -89,7 +83,7 @@ const Projects = () => {
           )
         }
       </Box>
-    </React.Fragment>
+    </>
   );
 }
 

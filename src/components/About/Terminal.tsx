@@ -1,6 +1,6 @@
-import React from 'react';
 import { Box, useTheme } from '@mui/material';
 import { FiberManualRecord } from '@mui/icons-material';
+
 import './terminal.css';
 
 const Terminal = ({ children }: any): JSX.Element => {
